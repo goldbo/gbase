@@ -27,7 +27,7 @@ public class UserService extends BaseService {
         User user = hibernateTemplate.load(User.class, "402881d6390e44b001390e44b1720001");
         //User user = hibernateTemplate.get(User.class,userName);
         user.setLastLogonTime(System.currentTimeMillis());
-        hibernateTemplate.flush(); //③请看下文的分析
+        hibernateTemplate.flush(); //③hibernate提交会在update方法返回前执行，避免覆盖addScore方法需手工刷新提交
     }
 }
 
