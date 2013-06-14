@@ -70,15 +70,21 @@
 				hibernate.jdbc.fetch_size=50
 				<!-- 数据库批量更新数 -->
 				hibernate.jdbc.batch_size=30
+				<!-- 自动更新表结构 -->
+				hibernate.hbm2ddl.auto=update
 			</value>
 		</property>
-
-		<property name="annotatedClasses">
+		<property name="packagesToScan">
+			<list>
+				<value>info.goldbo.base.entity</value>
+			</list>
+		</property>
+		<!-- <property name="annotatedClasses">
 			<list>
 				<value>info.goldbo.base.entity.Admin</value>
 				<value>info.goldbo.base.entity.User</value>
 			</list>
-		</property>
+		</property> -->
 	</bean>
 	
 	<!-- 设置需要进行Spring注解扫描的类包 -->

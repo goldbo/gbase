@@ -1,8 +1,10 @@
 package info.goldbo.base;
 
 import info.goldbo.base.entity.Admin;
+import info.goldbo.base.entity.User;
 import info.goldbo.base.service.AdminService;
 import info.goldbo.base.service.UserService;
+import info.goldbo.base.util.NoUtil;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -68,6 +70,16 @@ public class SpringTest  {
 	public void testMixTransation(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		UserService userService = (UserService)context.getBean("userService");
-		userService.update("user");
+	}
+	
+	@Test
+	public void testAddUser(){
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		UserService userService = (UserService)context.getBean("userService");
+		System.out.println(userService);
+		User user = new User();
+		user.setUserId(NoUtil.gainedNo("User"));
+		user.setUserName("user");
+		userService.save(user);
 	}
 }

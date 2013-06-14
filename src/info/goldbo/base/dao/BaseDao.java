@@ -19,7 +19,7 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.stereotype.Repository;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.util.Assert;
 
 /**
@@ -36,6 +36,7 @@ public class BaseDao<T, PK extends Serializable>{
 
 	private Class<T> entityClass;
 	protected SessionFactory sessionFactory;
+	protected JdbcTemplate jdbcTemplate;
 
 	@SuppressWarnings("unchecked")
 	public BaseDao() {
@@ -51,6 +52,11 @@ public class BaseDao<T, PK extends Serializable>{
 	@Resource
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
+	}
+	
+	@Resource
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
 	}
 
 	protected Session getSession() {

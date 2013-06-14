@@ -9,11 +9,11 @@ import java.util.List;
 import org.hibernate.criterion.DetachedCriteria;
 
 /**
- * Servcie实现类-Service基类
+ * 
  * ==================================
  * @author huangjinbo
  * @email goldbo891218@gmail.com
- * 2012-8-10 下午2:32:31
+ * 2013-6-9 涓嬪崍4:46:09
  * ==================================
  */
 public class BaseService<T, PK extends Serializable>  {

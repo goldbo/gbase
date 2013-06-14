@@ -5,14 +5,13 @@ import info.goldbo.base.entity.Admin;
 import org.springframework.stereotype.Repository;
 
 /**
- * Dao实现类-管理员
+ * 
  * ==================================
  * @author huangjinbo
  * @email goldbo891218@gmail.com
- * 2012-8-10 下午3:08:45
+ * 2013-6-9 涓嬪崍4:31:49
  * ==================================
  */
-
 @Repository
 public class AdminDao extends BaseDao<Admin, String>  {
 
