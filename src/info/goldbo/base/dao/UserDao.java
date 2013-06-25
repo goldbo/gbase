@@ -1,6 +1,5 @@
 package info.goldbo.base.dao;
 
-import info.goldbo.base.entity.Admin;
 import info.goldbo.base.entity.User;
 
 import org.springframework.stereotype.Repository;

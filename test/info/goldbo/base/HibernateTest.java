@@ -1,6 +1,6 @@
 package info.goldbo.base;
 
-import info.goldbo.base.entity.Admin;
+import info.goldbo.base.entity.User;
 
 import java.util.List;
 
@@ -19,12 +19,12 @@ public class HibernateTest {
 	
 	@Test
 	public void testAdd(){
-		Admin admin = new Admin();
-		admin.setName("admin");
-		admin.setPassword("123456");
+		User user = new User();
+		user.setName("admin");
+		user.setPassword("123456");
 		Session session = HibernateSessionFactory.getSession();
 		session.beginTransaction();
-		session.save(admin);
+		session.save(user);
 		session.getTransaction().commit();
 		session.close();
 	}
@@ -32,9 +32,8 @@ public class HibernateTest {
 	@Test
 	public void testUpdate(){
 		Session session = HibernateSessionFactory.getSession();
-		Admin admin = (Admin) session.load(Admin.class, "297e0cc1390b866d01390b866fec0001");
-		admin.setUsername("admin");
-		admin.setEmail("admin@goldbo.info");
+		User admin = (User) session.load(User.class, "297e0cc1390b866d01390b866fec0001");
+		admin.setName("admin2");
 		session.beginTransaction();
 		session.update(admin);
 		session.getTransaction().commit();
@@ -45,7 +44,7 @@ public class HibernateTest {
 	public void testDel(){
 		Session session = HibernateSessionFactory.getSession();
 		session.beginTransaction();
-		session.delete(session.load(Admin.class, "297e0cc1390b859101390b8595b70001"));
+		session.delete(session.load(User.class, "297e0cc1390b859101390b8595b70001"));
 		session.getTransaction().commit();
 		session.close();
 	}

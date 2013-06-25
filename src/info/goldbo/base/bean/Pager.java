@@ -3,31 +3,28 @@ package info.goldbo.base.bean;
 import java.util.List;
 
 /**
- *  BeanÀà - ·ÖÒ³
- * ==================================
- * @author huangjinbo
- * @email goldbo891218@gmail.com
- * 2012-8-10 ÏÂÎç2:31:37
- * ==================================
+ * Beanç±» - åˆ†é¡µ
  */
+
+@SuppressWarnings("unchecked")
 public class Pager {
 	
-	// ÅÅĞò·½Ê½
+	// æ’åºæ–¹å¼
 	public enum OrderType{
 		asc, desc
 	}
 	
-	public static final Integer MAX_PAGE_SIZE = 500;// Ã¿Ò³×î´ó¼ÇÂ¼ÊıÏŞÖÆ
+	public static final Integer MAX_PAGE_SIZE = 500;// æ¯é¡µæœ€å¤§è®°å½•æ•°é™åˆ¶
 
-	private Integer pageNumber = 1;// µ±Ç°Ò³Âë
-	private Integer pageSize = 20;// Ã¿Ò³¼ÇÂ¼Êı
-	private Integer totalCount = 0;// ×Ü¼ÇÂ¼Êı
-	private Integer pageCount = 0;// ×ÜÒ³Êı
-	private String property;// ²éÕÒÊôĞÔÃû³Æ
-	private String keyword;// ²éÕÒ¹Ø¼ü×Ö
-	private String orderBy = "createDate";// ÅÅĞò×Ö¶Î
-	private OrderType orderType = OrderType.desc;// ÅÅĞò·½Ê½
-	private List list;// Êı¾İList
+	private Integer pageNumber = 1;// å½“å‰é¡µç 
+	private Integer pageSize = 20;// æ¯é¡µè®°å½•æ•°
+	private Integer totalCount = 0;// æ€»è®°å½•æ•°
+	private Integer pageCount = 0;// æ€»é¡µæ•°
+	private String property;// æŸ¥æ‰¾å±æ€§åç§°
+	private String keyword;// æŸ¥æ‰¾å…³é”®å­—
+	private String orderBy = "createDate";// æ’åºå­—æ®µ
+	private OrderType orderType = OrderType.desc;// æ’åºæ–¹å¼
+	private List list;// æ•°æ®List
 
 	public Integer getPageNumber() {
 		return pageNumber;
@@ -112,7 +109,5 @@ public class Pager {
 	public void setList(List list) {
 		this.list = list;
 	}
-
-
 
 }

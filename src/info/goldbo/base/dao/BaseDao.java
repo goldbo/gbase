@@ -23,11 +23,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.util.Assert;
 
 /**
- * DaoÊµÏÖÀà - DaoÊµÏÖÀà»ùÀà
+ *Daoå®ç°ç±» - Daoå®ç°ç±»åŸºç±»
  * ==================================
  * @author huangjinbo
  * @email goldbo891218@gmail.com
- * 2012-8-10 ÏÂÎç2:30:20
+ * 2012-8-10 ï¿½ï¿½ï¿½ï¿½2:30:20
  * ==================================
  */
 
@@ -211,7 +211,6 @@ public class BaseDao<T, PK extends Serializable>{
 		
 		criteria.setProjection(null);
 		criteria.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);    
-		//EAGER loadÊ±»á³öÏÖÖØ¸´¼ÇÂ¼
 	//	criteria.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
 		criteria.setFirstResult((pageNumber - 1) * pageSize);
 		criteria.setMaxResults(pageSize);

@@ -4,43 +4,22 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
-import org.hibernate.annotations.GenericGenerator;
-
 /**
- * ÊµÌåÀà-»ùÀà
- * ==================================
- * @author huangjinbo
- * @email goldbo891218@gmail.com
- * 2012-8-9 ÏÂÎç5:27:26
- * ==================================
+ * å®žä½“ç±» - åŸºç±»
  */
+
 
 @MappedSuperclass
 public class BaseEntity implements Serializable {
 
-	private static final long serialVersionUID = 8030492155638941515L;
-	
-	private String id;// ID
-	private Date createDate;// ´´½¨ÈÕÆÚ
-	private Date modifyDate;// ÐÞ¸ÄÈÕÆÚ
+	private static final long serialVersionUID = -6718838800112233445L;
 
-	@Id
-	@Column(length = 32, nullable = true)
-	@GeneratedValue(generator = "uuid")
-	@GenericGenerator(name = "uuid", strategy = "uuid")
-	public String getId() {
-		return id;
-	}
+	private Date createDate;// åˆ›å»ºæ—¥æœŸ
+	private Date updateDate;// ä¿®æ”¹æ—¥æœŸ
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	@Column(updatable = false)
+	@Column(name="create_date",updatable = false)
 	public Date getCreateDate() {
 		return createDate;
 	}
@@ -49,39 +28,14 @@ public class BaseEntity implements Serializable {
 		this.createDate = createDate;
 	}
 
-	public Date getModifyDate() {
-		return modifyDate;
+	@Column(name="update_date")
+	public Date getUpdateDate() {
+		return updateDate;
 	}
 
-	public void setModifyDate(Date modifyDate) {
-		this.modifyDate = modifyDate;
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
 	}
 
-	@Override
-	public int hashCode() {
-		return id == null ? System.identityHashCode(this) : id.hashCode();
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass().getPackage() != obj.getClass().getPackage()) {
-			return false;
-		}
-		final BaseEntity other = (BaseEntity) obj;
-		if (id == null) {
-			if (other.getId() != null) {
-				return false;
-			}
-		} else if (!id.equals(other.getId())) {
-			return false;
-		}
-		return true;
-	}
 
 }

@@ -1,15 +1,20 @@
 package info.goldbo.base;
 
+import static org.junit.Assert.assertEquals;
 import info.goldbo.base.bean.SystemListNoRowMapper;
 import info.goldbo.base.entity.SystemListNo;
+import info.goldbo.base.util.AuthRandom;
 import info.goldbo.base.util.NoUtil;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 /**
  * 生成ID、编号测试类
@@ -25,6 +30,15 @@ public class GenerateNoTest {
 	@Before
 	public void load(){
 		context = new ClassPathXmlApplicationContext("applicationContext.xml");
+	}
+	
+	@Test
+	public void testGetAuthRandom(){
+		AuthRandom authRandom = new AuthRandom();
+		authRandom.setCharset("A-Z0-9");
+		authRandom.setLength("6");
+		String randomStr = authRandom.getRandom();
+		System.out.println(randomStr);
 	}
 	
 	@Test
@@ -61,4 +75,5 @@ public class GenerateNoTest {
 		}
 		System.out.println(systemListNo.getPrefix());
 	}
+	
 }
